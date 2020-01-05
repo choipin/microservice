@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'com.microservice.it'
+version '1.66.888'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(":common")
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1")
+    implementation("mysql:mysql-connector-java:8.0.15")
+}

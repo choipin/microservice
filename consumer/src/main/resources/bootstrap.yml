@@ -1,0 +1,102 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: peer
+  application:
+    name: consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 30
+swagger:
+  title: wenxin_consumer
+  contact:
+    url: www.wenxin.com
+    name: wenxin
+    email: 270456714@qq.com
+  description: wenxin_description
+  enabled: true
+  version: 16.88888
+#server:
+#  port: 8081
+#spring:
+#  profiles:
+#    active: peer1
+#  application:
+#    name: consumer1
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 30
+#    lease-expiration-duration-in-seconds: 30
+#swagger:
+#  title: wenxin_consumer
+#  contact:
+#    url: www.wenxin.com
+#    name: wenxin
+#    email: 270456714@qq.com
+#  description: wenxin_description
+#  enabled: true
+#  version: 16.88888
+#
+#---
+#server:
+#  port: 8082
+#spring:
+#  profiles:
+#    active: peer2
+#  application:
+#    name: consumer2
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 30
+#    lease-expiration-duration-in-seconds: 30
+#swagger:
+#  title: wenxin_consumer
+#  contact:
+#    url: www.wenxin.com
+#    name: wenxin
+#    email: 270456714@qq.com
+#  description: wenxin_description
+#  enabled: true
+#  version: 16.88888
+#
+#---
+#server:
+#  port: 8083
+#spring:
+#  profiles:
+#    active: peer3
+#  application:
+#    name: consumer3
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    lease-renewal-interval-in-seconds: 30
+#    lease-expiration-duration-in-seconds: 30
+#swagger:
+#  title: wenxin_consumer
+#  contact:
+#    url: www.wenxin.com
+#    name: wenxin
+#    email: 270456714@qq.com
+#  description: wenxin_description
+#  enabled: true
+#  version: 16.88888
+#
+#---

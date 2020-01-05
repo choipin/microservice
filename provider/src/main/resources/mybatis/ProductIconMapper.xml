@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.microservice.it.dao.ProductIconDao">
+    <resultMap id="collectResultMap" type="com.microservice.it.entity.ProductIcon">
+        <result column="product_id" jdbcType="BIGINT" property="productId"/>
+        <result column="product_name" jdbcType="VARCHAR" property="productName"/>
+        <result column="product_price" jdbcType="INTEGER" property="productPrice"/>
+        <result column="product_stock" jdbcType="INTEGER" property="productStock"/>
+        <result column="product_description" jdbcType="VARCHAR" property="productDescription"/>
+        <result column="product_icon" jdbcType="VARCHAR" property="productIcon"/>
+        <result column="product_status" jdbcType="INTEGER" property="productStatus"/>
+        <result column="category_type" jdbcType="INTEGER" property="categoryType"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <sql id="fields">
+        product_id,product_name,product_price,product_stock,product_description,
+        product_icon,product_status,category_type,create_time,update_time
+    </sql>
+
+    <select id="queryProductPage" resultMap="collectResultMap">
+        SELECT
+            <include refid="fields"/>
+        FROM product_info
+            limit #{page},#{size}
+    </select>
+
+    <select id="countTotalProduct" resultType="long">
+        SELECT
+            count(product_id)
+        FROM product_info
+    </select>
+
+    <insert id="insertProductIcon" parameterType="com.microservice.it.entity.ProductIcon">
+        insert into product_info(
+            product_id,
+            product_name,
+            product_price,
+            product_stock,
+            product_description,
+            product_icon,
+            product_status,
+            category_type,
+            create_time,
+            update_time
+        ) values(
+            #{productId,jdbcType=BIGINT},
+            #{productName,jdbcType=VARCHAR},
+            #{productPrice,jdbcType=BIGINT},
+            #{productStock,jdbcType=BIGINT},
+            #{productDescription,jdbcType=VARCHAR},
+            #{productIcon,jdbcType=VARCHAR},
+            #{productStatus, jdbcType=BIGINT},
+            #{categoryType,jdbcType=BIGINT},
+            now(),
+            now()
+        )
+    </insert>
+
+    <update id="updateProductIcon" parameterType="com.microservice.it.entity.ProductIcon">
+
+    </update>
+
+    <select id="getProductIconById" parameterType="long" resultType="com.microservice.it.entity.ProductIcon">
+        SELECT
+             <include refid="fields"/>
+        FROM product_info
+            <where>
+                product_id = #{productId,jdbcType=BIGINT}
+            </where>
+    </select>
+
+    <delete id="deleteProductIconById" parameterType="long">
+        delete from product_info
+        <where>
+            product_id = #{productId,jdbcType=BIGINT}
+        </where>
+    </delete>
+
+</mapper>

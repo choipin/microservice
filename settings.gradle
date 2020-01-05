@@ -1,0 +1,6 @@
+rootProject.name = 'microservice'
+include 'common'
+include 'eureka'
+include 'provider'
+include 'consumer'
+

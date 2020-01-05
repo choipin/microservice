@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+spring:
+  security:
+    user:
+      name: root
+      password: root
+  application:
+    name: eureka
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://root:root@${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: peer
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.hostname}:${server.port}
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
+  server:
+    enable-self-preservation: false
+  environment: product
+  datacenter: wenxin

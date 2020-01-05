@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.microservice.it'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.spring4all:swagger-spring-boot-starter:1.9.0.RELEASE'
+    compile 'com.alibaba:fastjson:1.2.47'
+    compile 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
